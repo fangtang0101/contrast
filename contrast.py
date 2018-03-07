@@ -19,3 +19,5 @@ lb.pack()
 btn = Button(root,text="弹出选择文件对话框",command=xz)
 btn.pack()
 root.mainloop()
+
+# link http://blog.csdn.net/Abit_Go/article/details/77938938
