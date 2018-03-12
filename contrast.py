@@ -11,7 +11,9 @@ list_file = []
 def xz():
     filenames = tkinter.filedialog.askopenfilenames()
     print(" you choose file is",filenames)
-    if not is_xls(str(filenames)):
+    filenames_list = list(filenames)
+    filenames_str =  filenames_list[0]
+    if not is_xls(filenames_str):
         print(" is xls",is_xls(str(filenames)))
         lb.config(text = "this file is not xls");
         return
@@ -21,6 +23,7 @@ def xz():
         if(2 == len(list_file)):
             print("end ......")
             root.destroy()
+            contrast_file()
         else:
             string_filename =""
             for i in range(0,len(filenames)):
@@ -32,7 +35,7 @@ def xz():
 # def  is file (xls)
 def is_xls(file):
     mark = True
-    if os.path.isfile(file):
+    if not os.path.isfile(file):
         mark = False
     if not file.endswith('.xls'):
         mark = False
@@ -41,7 +44,8 @@ def is_xls(file):
 
 # contrast two file 
 def contrast_file():
-    pass
+    print("you come here ...")
+    
 
 
 
@@ -53,6 +57,12 @@ lb.pack()
 btn = Button(root,text="弹出选择文件对话框",command=xz)
 btn.pack()
 root.mainloop()
+
+
+
+
+
+
 
 
 
